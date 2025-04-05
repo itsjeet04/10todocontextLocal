@@ -1,13 +1,12 @@
 import { createContext, useContext } from "react";
 
 
-
-export default Todocontext = createContext({
+const Todocontext = createContext({
     todo : [
         {
             id : 1 ,
             todo : "message",
-            completeed : false ,
+            completed : false ,
         }
     ],
     addTodo : (todo) => {},
@@ -19,5 +18,9 @@ export default Todocontext = createContext({
 export const useTodo = () => {
     return useContext(Todocontext)
 }
+// Creating a Custom Hook for Easier Access
+// This function useTodo() allows us to use the TodoContext anywhere in our app without needing to manually import useContext(TodoContext) every time.
 
-export const TodoProvider = Todocontext.Provider
+export const TodoProvider = Todocontext.Provider;
+export default Todocontext;
+// TodoProvider is the actual component that will wrap around our app and provide the TodoContext values to its children.   
